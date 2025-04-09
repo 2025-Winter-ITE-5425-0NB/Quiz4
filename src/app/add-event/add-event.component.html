@@ -1,0 +1,19 @@
+<h2>Add New Event</h2>
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+  <label>Name:
+    <input formControlName="name" />
+    <span *ngIf="eventForm.get('name')?.invalid && eventForm.get('name')?.touched">Name is required</span>
+  </label>
+
+  <label>Detail:
+    <input formControlName="detail" />
+    <span *ngIf="eventForm.get('detail')?.invalid && eventForm.get('detail')?.touched">Detail is required</span>
+  </label>
+
+  <label>Category:
+    <input formControlName="category" />
+    <span *ngIf="eventForm.get('category')?.invalid && eventForm.get('category')?.touched">Category is required</span>
+  </label>
+
+  <button type="submit" [disabled]="eventForm.invalid">Add Event</button>
+</form>
